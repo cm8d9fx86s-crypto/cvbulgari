@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marine Perrin – Retail Performance VIE Bulgari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #111827;
+      --accent: #c5a572; /* Gold Bulgari */
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    nav a {
+      margin-left: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-title {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-role {
+      font-size: 18px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: #f5efe3;
+      color: #8a6d3b;
+    }
+
+    .hero-card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    }
+
+    .hero-metric-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-metric-value {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero-metric-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .card-list {
+      font-size: 13px;
+      margin-left: 16px;
+    }
+
+    .pill-soft {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f0f4ff;
+      color: #1d4ed8;
+      font-size: 11px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 24px 16px;
+      background: #111827;
+      color: white;
+      border-radius: 16px;
+    }
+
+    .contact-section p {
+      color: #e5e7eb;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .contact-info {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .contact-info a {
+      color: #fbbf24;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <div class="logo">MARINE PERRIN</div>
+        <div class="tagline">Retail Performance · Data Analytics · VIE Bulgari</div>
+      </div>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">Driving retail excellence through data, performance insights and advanced reporting.</h1>
+        <div class="hero-role">Retail Performance & Data Analytics – VIE Candidate (Bulgari North America)</div>
+        <p class="hero-text">
+          With strong FMCG experience at Nestlé and a proven analytical background in category management, procurement and performance reporting, I bring a rigorous, detail‑oriented and data‑driven mindset to support Bulgari’s Retail Performance team in North America.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn-primary">Download CV (PDF)</button>
+          <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Contact me
+          </button>
+        </div>
+
+        <div class="hero-highlights">
+          <span class="pill">Advanced Excel & Power BI</span>
+          <span class="pill">KPI Reporting</span>
+          <span class="pill">Budget & Forecasting</span>
+          <span class="pill">Retail & FMCG</span>
+          <span class="pill">Detail‑oriented</span>
+          <span class="pill">Bilingual English (C2)</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-metric-label">Profile snapshot</div>
+        <div class="hero-metric-value">Retail Performance VIE</div>
+        <div class="hero-metric-sub">
+          Analytical mindset, reporting expertise and cross‑functional coordination to support Bulgari’s retail network across North America.
+        </div>
+        <div class="hero-badges">
+          <span>• Reporting automation</span>
+          <span>• KPI dashboards</span>
+          <span>• Trend analysis</span>
+          <span>• Retail insights</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="grid grid-3">
+
+        <div class="card">
+          <div class="card-title">Category Manager NESCAFÉ</div>
+          <div class="card-subtitle">Nestlé France (2025–2026)</div>
+          <div class="card-tagline">Retail Performance & Commercial Analytics</div>
+          <ul class="card-list">
+            <li>Delivered weekly and monthly performance reporting (sell‑in, market share, distribution, KPIs).</li>
+            <li>Analyzed trends by retailer and category to support strategic decision‑making.</li>
+            <li>Managed a €4M promotional budget, including forecasting and pre‑evaluation with finance.</li>
+            <li>Built dashboards and performance recaps for senior management.</li>
+            <li>Designed planograms and merchandising strategies based on performance insights.</li>
+            <li>Coordinated with marketing, sales, finance and field teams to ensure execution excellence.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Strategic Buyer</div>
+          <div class="card-subtitle">Nestlé France (2024–2025)</div>
+          <div class="card-tagline">Budgeting, Forecasting & Cross‑Functional Coordination</div>
+          <ul class="card-list">
+            <li>Led 15 full‑cycle tenders (€100K–€1.5M), including financial analysis and supplier scoring.</li>
+            <li>Supported budget planning, cost tracking and financial reporting.</li>
+            <li>Built dashboards to monitor spend, supplier performance and contract KPIs.</li>
+            <li>Collaborated with marketing, sales, finance and legal teams.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Assistant Category Manager</div>
+          <div class="card-subtitle">Nestlé France (2024)</div>
+          <div class="card-tagline">Infant Nutrition – Carrefour, Provera, Casino</div>
+          <ul class="card-list">
+            <li>Delivered monthly retail performance reports and weekly KPI newsletters to 20 stakeholders.</li>
+            <li>Conducted deep‑dive analyses on category trends, competitor performance and retailer dynamics.</li>
+            <li>Led 5 trade marketing operations and measured their performance.</li>
+            <li>Redesigned the HOURA Drive interface based on UX and performance insights.</li>
+            <li>Contributed to planogram design and retail execution.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Marketing & Sales Administration Assistant</div>
+          <div class="card-subtitle">Filorga (Colgate Group) (2023)</div>
+          <div class="card-tagline">Operational Reporting & Retail Coordination</div>
+          <ul class="card-list">
+            <li>Managed sales workflows, contracts and performance tracking for 120 pharmacies.</li>
+            <li>Supported pricing strategy, rebates and sales conditions analysis.</li>
+            <li>Coordinated cross‑departmental reporting between sales, logistics and finance.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Technical & Analytical Skills</h2>
+      <div class="two-columns">
+
+        <div class="card">
+          <div class="card-title">Tools & Technologies</div>
+          <div class="skills-tags">
+            <span class="pill-soft">Excel (Advanced)</span>
+            <span class="pill-soft">Power BI</span>
+            <span class="pill-soft">PowerPoint</span>
+            <span class="pill-soft">Nielsen</span>
+            <span class="pill-soft">Kantar Panel</span>
+            <span class="pill-soft">Google Analytics</span>
+            <span class="pill-soft">Reporting automation</span>
+            <span class="pill-soft">Retail KPIs</span>
+            <span class="pill-soft">Budgeting basics</span>
+            <span class="pill-soft">Forecasting</span>
+            <span class="pill-soft">HTML / CSS</span>
+            <span class="pill-soft">JavaScript basics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Expertise Areas</div>
+          <ul class="card-list">
+            <li>Weekly & monthly sales reporting (actuals vs targets).</li>
+            <li>Trend analysis by store, category and advisor.</li>
+            <li>Creation & automation of performance dashboards.</li>
+            <li>Retail math, KPIs and incentive tracking.</li>
+            <li>Budget preparation & financial coordination.</li>
+            <li>Cross‑functional collaboration with retail, finance, merchandising & CRM.</li>
+            <li>Strong attention to detail and structured problem‑solving.</li>
+            <li>Ability to work in fast‑paced, high‑stakes environments.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="grid grid-3">
+
+        <div class="card">
+          <div class="card-title">Master 2 – Innovative Project Management</div>
+          <div class="card-subtitle">Rennes School of Business</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Master 1 – Marketing & Commerce</div>
+          <div class="card-subtitle">Rennes School of Business</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Erasmus Exchange</div>
+          <div class="card-subtitle">Technological University of Dublin</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Bachelor – GlobalTech & Cybersecurity</div>
+          <div class="card-subtitle">Rennes School of Business</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Preparatory Class – Science Track</div>
+          <div class="card-subtitle">Lycée Ampère, Lyon</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Scientific Baccalaureate – Highest Honors</div>
+          <div class="card-subtitle">Lycée Daudet, Nîmes</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+      <h2 class="section-title" style="color:white;">Let’s connect</h2>
+      <p>
+        Interested in a motivated, analytical and detail‑oriented profile for your Retail Performance VIE at Bulgari North America.  
+        I would be delighted to discuss how I can support your retail network through data, insights and reporting excellence.
+      </p>
+
+      <div class="contact-info">
+        Email : <a href="mailto:perrin.marinelaure@gmail.com">perrin.marinelaure@gmail.com</a><br />
+        Phone : +33 6 82 33 52 08<br />
+        LinkedIn : <a href="https://www.linkedin.com/in/marine-perrin-920197213" target="_blank">/in/marine-perrin</a>
+      </div>
+
+      <button class="btn-primary">Download CV (PDF)</button>
+    </section>
+
+    <footer>
+      © Marine Perrin – Retail Performance & Data Analytics – VIE Bulgari
+    </footer>
+
+  </div>
+</body>
+</html>
